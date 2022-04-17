@@ -20,5 +20,11 @@
   "bugs": {
     "url": "https://github.com/PavelSilinskii/nodejs/issues"
   },
-  "homepage": "https://github.com/PavelSilinskii/nodejs#readme"
+  "homepage": "https://github.com/PavelSilinskii/nodejs#readme",
+  "dependencies": {
+    "express": "^4.17.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
 }
