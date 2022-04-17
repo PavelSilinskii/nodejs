@@ -4,7 +4,6 @@ const weatherRequest = require('./requests/weather.request')
 
 const app = express()
 
-// d4e2b2c498da3cf2cbbf2b6f050ad559
 
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
@@ -14,11 +13,13 @@ app.get('/',(req,res)=>{
 res.render('index')
 })
 
-app.post('/',(req,res)=>{
+app.post('/',async (req,res)=>{
     
-   const { city } = req.body
+   const {city} = req.body
    
-weatherRequest(city)
+const {weather,error} = await weatherRequest(city)
+console.log('Weather:', weather)
+console.log('Error', error)
 
     res.render('index')
 })
