@@ -10,7 +10,7 @@ app.use(express.static('public'))
 app.use(bodyParser.urlencoded({extended: true}))
 
 app.get('/',(req,res)=>{
-res.render('index')
+res.render('index',{weather,error})
 })
 
 app.post('/',async (req,res)=>{
@@ -18,10 +18,9 @@ app.post('/',async (req,res)=>{
    const {city} = req.body
    
 const {weather,error} = await weatherRequest(city)
-console.log('Weather:', weather)
-console.log('Error', error)
 
-    res.render('index')
+
+    res.render('index',{weather,error})
 })
 
 app.listen(3000,()=>{
